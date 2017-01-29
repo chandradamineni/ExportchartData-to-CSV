@@ -1,0 +1,58 @@
+<style>
+    #export {
+        -webkit-appearance: button;
+        color: black;
+        border-radius: 3px;
+        box-shadow: none;
+        background-color: light gray;
+        border: 1px solid #b1b1bc;
+        font-size: 15px;
+        cursor: pointer;
+    }
+    .Header {
+        width: 100%
+    }
+    .flt-right {
+        float: right;
+    }
+    #rngpckr {
+        float: left;
+        width: 75%;
+    }
+    .button-area {
+        width: 20%;
+        float: right;
+        text-align: right;
+    }
+    .table-area {
+        float: left;
+        width: 100%;
+        margin-top: 40px;
+    }
+    .loading {
+        position: fixed;
+        z-index: 998;
+        height: 3em;
+        margin-left: 573px;
+        margin-top: 52px;
+    }
+</style>
+<div style="background:white;height:99vh;width:100%;padding:10px 30px 30px 30px; overflow-y: scroll;">
+    <p-card header-text='c Monitor Tool' id="caseTool" style="position: relative">
+        <div ng-show="loading" class="loading">
+            <i class="fa fa-circle-o-notch fa-spin"></i>Loading...</div>
+        <div class="Header">
+            <div id="rngpckr" style="position: relative;">
+                <px-rangepicker id="rangemodal"></px-rangepicker>
+            </div>
+            <div class="button-area">
+                <button ng-click="exportToCSV()" id="export" class=" btn">Export to CSV</button>
+            </div>
+        </div>
+        <div class="table-area">
+            <px-data-table table-data="{{tableData}}" filterable>
+                
+            </px-data-table>
+        </div>
+    </p-card>
+</div>
